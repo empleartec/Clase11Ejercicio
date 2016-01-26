@@ -18,7 +18,7 @@ public class GetStationsTask extends AsyncTask <Void, Void, List<Station>>{
 
     public interface GetStationsCallback {
         public void prepareUI();
-        public void stations(List<Station> stations);
+        public void onStationsRetrieved(List<Station> stations);
         public void taskCanceled();
 
     }
@@ -50,7 +50,7 @@ public class GetStationsTask extends AsyncTask <Void, Void, List<Station>>{
     @Override
     protected void onPostExecute(List<Station> stations) {
         if (callback != null) {
-            callback.stations(stations);
+            callback.onStationsRetrieved(stations);
         }
     }
 }
